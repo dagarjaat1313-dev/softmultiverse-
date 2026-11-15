@@ -5,12 +5,18 @@ import { Search, ShoppingBag, ShieldCheck, Globe2, Zap, ChevronDown, Menu, X, Ar
 
 const products = [
   { id: 1, name: "Endpoint Security Pro", type: "Cybersecurity", detail: "Advanced protection for everyday devices", price: 29, icon: ShieldCheck, tag: "POPULAR" },
+  { id: 7, name: "Norton 360 Deluxe", type: "Antivirus", detail: "Antivirus and multi-device digital protection", price: 49, icon: ShieldCheck, tag: "ANTIVIRUS" },
+  { id: 8, name: "Bitdefender Total Security", type: "Antivirus", detail: "Security suite for Windows, macOS, iOS and Android", price: 39, icon: ShieldCheck, tag: "ANTIVIRUS" },
+  { id: 9, name: "McAfee Total Protection", type: "Antivirus", detail: "Device security and web protection suite", price: 44, icon: ShieldCheck, tag: "ANTIVIRUS" },
+  { id: 10, name: "ESET HOME Security", type: "Antivirus", detail: "Lightweight antivirus and internet security", price: 35, icon: ShieldCheck, tag: "ANTIVIRUS" },
+  { id: 11, name: "Quick Heal Total Security", type: "Antivirus", detail: "PC and mobile security suite", price: 25, icon: ShieldCheck, tag: "ANTIVIRUS" },
+  { id: 12, name: "Avast Premium Security", type: "Antivirus", detail: "Real-time antivirus and online threat protection", price: 32, icon: ShieldCheck, tag: "ANTIVIRUS" },
   { id: 3, name: "CloudVault Backup", type: "Cloud & Backup", detail: "Keep important files backed up", price: 49, icon: Cloud, tag: "CLOUD" },
   { id: 4, name: "System Utility Suite", type: "Utilities", detail: "Helpful tools to keep your PC organised", price: 19, icon: Zap, tag: "UTILITY" },
   { id: 5, name: "Firewall Defender", type: "Cybersecurity", detail: "Network monitoring and firewall tools", price: 35, icon: ShieldCheck, tag: "SECURITY" },
   { id: 6, name: "Workstation OS License", type: "Operating Systems", detail: "Operating system license category preview", price: 79, icon: Monitor, tag: "LICENSE" },
 ];
-const categories = ["All software", "Cybersecurity", "Operating Systems", "Utilities", "Cloud & Backup"];
+const categories = ["All software", "Antivirus", "Cybersecurity", "Operating Systems", "Utilities", "Cloud & Backup"];
 
 export default function Home() {
   const [category, setCategory] = useState("All software");
@@ -46,7 +52,7 @@ export default function Home() {
 
     <section className="ticker"><div>CYBERSECURITY <i>✳</i> PRODUCTIVITY <i>✳</i> CLOUD TOOLS <i>✳</i> DIGITAL ESSENTIALS <i>✳</i> CYBERSECURITY <i>✳</i></div></section>
 
-    <section className="catalog wrap" id="catalog"><div className="section-head"><div><div className="eyebrow">THE COLLECTION</div><h2>Explore the <em>marketplace.</em></h2><p>Browse software categories and discover tools for your digital life.</p></div><div className="catalog-count">CURATED CATEGORIES <b>06</b></div></div>
+    <section className="catalog wrap" id="catalog"><div className="section-head"><div><div className="eyebrow">THE COLLECTION</div><h2>Explore the <em>marketplace.</em></h2><p>Browse software categories and discover tools for your digital life.</p></div><div className="catalog-count">CURATED CATEGORIES <b>07</b></div></div>
       <div className="catalog-tools"><div className="filters">{categories.map(c=><button key={c} onClick={()=>setCategory(c)} className={category===c?"filter active":"filter"}>{c}</button>)}</div><label className="search"><Search size={17}/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search software..."/></label></div>
       <div className="product-grid">{shown.map(p=>{const Icon=p.icon;return <article className="product" key={p.id}><div className="product-top"><div className="product-icon"><Icon size={24}/></div><span className="product-tag">{p.tag}</span></div><div className="product-type">{p.type}</div><h3>{p.name}</h3><p>{p.detail}</p><div className="product-bottom"><div><small>INDICATIVE PRICE</small><strong>${p.price.toFixed(2)} <small>USD</small></strong></div><button className="add-btn" onClick={()=>add(p.id)}><Plus size={16}/> Add</button></div></article>})}</div>
       {shown.length===0&&<div className="empty">No matching products. Try another search.</div>}
