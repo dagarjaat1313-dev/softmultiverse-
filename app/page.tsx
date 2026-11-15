@@ -5,13 +5,12 @@ import { Search, ShoppingBag, ShieldCheck, Globe2, Zap, ChevronDown, Menu, X, Ar
 
 const products = [
   { id: 1, name: "Endpoint Security Pro", type: "Cybersecurity", detail: "Advanced protection for everyday devices", price: 29, icon: ShieldCheck, tag: "POPULAR" },
-  { id: 2, name: "Private VPN Plus", type: "Privacy & VPN", detail: "Browse with an added layer of privacy", price: 39, icon: LockKeyhole, tag: "PRIVACY" },
   { id: 3, name: "CloudVault Backup", type: "Cloud & Backup", detail: "Keep important files backed up", price: 49, icon: Cloud, tag: "CLOUD" },
   { id: 4, name: "System Utility Suite", type: "Utilities", detail: "Helpful tools to keep your PC organised", price: 19, icon: Zap, tag: "UTILITY" },
   { id: 5, name: "Firewall Defender", type: "Cybersecurity", detail: "Network monitoring and firewall tools", price: 35, icon: ShieldCheck, tag: "SECURITY" },
   { id: 6, name: "Workstation OS License", type: "Operating Systems", detail: "Operating system license category preview", price: 79, icon: Monitor, tag: "LICENSE" },
 ];
-const categories = ["All software", "Cybersecurity", "Privacy & VPN", "Operating Systems", "Utilities", "Cloud & Backup"];
+const categories = ["All software", "Cybersecurity", "Operating Systems", "Utilities", "Cloud & Backup"];
 
 export default function Home() {
   const [category, setCategory] = useState("All software");
@@ -38,14 +37,14 @@ export default function Home() {
     <section className="hero wrap">
       <div className="hero-copy"><div className="eyebrow"><span className="pulse"/> YOUR DIGITAL WORLD, DISCOVERED</div>
         <h1>Find the right<br/><em>software universe.</em></h1>
-        <p>Explore digital tools for security, privacy, productivity and more — all in one destination.</p>
+        <p>Explore digital tools for security, productivity and more — all in one destination.</p>
         <div className="hero-cta"><a href="#catalog" className="primary">Explore marketplace <ArrowUpRight size={17}/></a><a href="#why" className="secondary">Discover our approach</a></div>
         <div className="trust-row"><span><ShieldCheck size={15}/> Security-minded</span><span><Globe2 size={15}/> Global vision</span><span><Zap size={15}/> Digital-first</span></div>
       </div>
       <div className="hero-art"><div className="orbit orbit-one"/><div className="orbit orbit-two"/><div className="planet"><div className="planet-core"><Sparkles size={48}/></div></div><div className="float-card card-a"><ShieldCheck/><span><b>Digital protection</b><small>Tools for safer devices</small></span></div><div className="float-card card-b"><Cloud/><span><b>Cloud essentials</b><small>Your files, in focus</small></span></div><div className="art-caption">SOFTWARE WITHOUT BORDERS <span>✦</span></div></div>
     </section>
 
-    <section className="ticker"><div>CYBERSECURITY <i>✳</i> PRIVACY <i>✳</i> PRODUCTIVITY <i>✳</i> CLOUD TOOLS <i>✳</i> DIGITAL ESSENTIALS <i>✳</i> CYBERSECURITY <i>✳</i> PRIVACY <i>✳</i></div></section>
+    <section className="ticker"><div>CYBERSECURITY <i>✳</i> PRODUCTIVITY <i>✳</i> CLOUD TOOLS <i>✳</i> DIGITAL ESSENTIALS <i>✳</i> CYBERSECURITY <i>✳</i></div></section>
 
     <section className="catalog wrap" id="catalog"><div className="section-head"><div><div className="eyebrow">THE COLLECTION</div><h2>Explore the <em>marketplace.</em></h2><p>Browse software categories and discover tools for your digital life.</p></div><div className="catalog-count">CURATED CATEGORIES <b>06</b></div></div>
       <div className="catalog-tools"><div className="filters">{categories.map(c=><button key={c} onClick={()=>setCategory(c)} className={category===c?"filter active":"filter"}>{c}</button>)}</div><label className="search"><Search size={17}/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search software..."/></label></div>
