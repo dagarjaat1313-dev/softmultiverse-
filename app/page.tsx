@@ -8,7 +8,7 @@ const products = [
   { id: 7, name: "Norton 360 Deluxe", type: "Antivirus", detail: "Antivirus and multi-device digital protection", price: 49, icon: ShieldCheck, tag: "ANTIVIRUS", image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=900&q=85" },
   { id: 8, name: "Bitdefender Total Security", type: "Antivirus", detail: "Security suite for Windows, macOS, iOS and Android", price: 39, icon: ShieldCheck, tag: "ANTIVIRUS", image: "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=900&q=85" },
   { id: 9, name: "McAfee Total Protection", type: "Antivirus", detail: "Device security and web protection suite", price: 44, icon: ShieldCheck, tag: "ANTIVIRUS", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=85" },
-  { id: 10, name: "ESET HOME Security", type: "Antivirus", detail: "Lightweight antivirus and internet security", price: 35, icon: ShieldCheck, tag: "ANTIVIRUS", image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=85" },
+  { id: 10, name: "Trend Micro Maximum Security", type: "Antivirus", detail: "Protection for devices, privacy and online activity", price: 35, icon: ShieldCheck, tag: "ANTIVIRUS", image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=85" },
   { id: 12, name: "Avast Premium Security", type: "Antivirus", detail: "Real-time antivirus and online threat protection", price: 32, icon: ShieldCheck, tag: "ANTIVIRUS", image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=85" },
   { id: 3, name: "CloudVault Backup", type: "Cloud & Backup", detail: "Keep important files backed up", price: 49, icon: Cloud, tag: "CLOUD", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=900&q=85" },
   { id: 4, name: "System Utility Suite", type: "Utilities", detail: "Helpful tools to keep your PC organised", price: 19, icon: Zap, tag: "UTILITY", image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=900&q=85" },
@@ -19,7 +19,7 @@ const categories = ["All software", "Antivirus", "Cybersecurity", "Operating Sys
 
 const antivirusBrands = [
   { name: "Bitdefender", country: "Romania", founded: "2001", website: "https://www.bitdefender.com/", logo: "https://cdn.simpleicons.org/bitdefender/FFFFFF" },
-  { name: "ESET", country: "Slovakia", founded: "1992", website: "https://www.eset.com/", logo: "https://cdn.simpleicons.org/eset/FFFFFF" },
+  { name: "Trend Micro", country: "Japan (headquarters)", founded: "1988", website: "https://www.trendmicro.com/", logo: "https://cdn.simpleicons.org/trendmicro/FFFFFF" },
   { name: "Avast", country: "Czech Republic", founded: "1988", website: "https://www.avast.com/", logo: "https://cdn.simpleicons.org/avast/FFFFFF" },
   { name: "McAfee", country: "United States", founded: "1987", website: "https://www.mcafee.com/", logo: "https://cdn.simpleicons.org/mcafee/FFFFFF" },
   { name: "Norton", country: "United States", founded: "1991", website: "https://www.norton.com/", logo: "https://cdn.simpleicons.org/norton/FFFFFF" },
