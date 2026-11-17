@@ -9,7 +9,6 @@ const products = [
   { id: 8, name: "Bitdefender Total Security", type: "Antivirus", detail: "Security suite for Windows, macOS, iOS and Android", price: 39, icon: ShieldCheck, tag: "ANTIVIRUS", image: "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=900&q=85" },
   { id: 9, name: "McAfee Total Protection", type: "Antivirus", detail: "Device security and web protection suite", price: 44, icon: ShieldCheck, tag: "ANTIVIRUS", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=85" },
   { id: 10, name: "ESET HOME Security", type: "Antivirus", detail: "Lightweight antivirus and internet security", price: 35, icon: ShieldCheck, tag: "ANTIVIRUS", image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=85" },
-  { id: 11, name: "Quick Heal Total Security", type: "Antivirus", detail: "PC and mobile security suite", price: 25, icon: ShieldCheck, tag: "ANTIVIRUS", image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=85" },
   { id: 12, name: "Avast Premium Security", type: "Antivirus", detail: "Real-time antivirus and online threat protection", price: 32, icon: ShieldCheck, tag: "ANTIVIRUS", image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=85" },
   { id: 3, name: "CloudVault Backup", type: "Cloud & Backup", detail: "Keep important files backed up", price: 49, icon: Cloud, tag: "CLOUD", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=900&q=85" },
   { id: 4, name: "System Utility Suite", type: "Utilities", detail: "Helpful tools to keep your PC organised", price: 19, icon: Zap, tag: "UTILITY", image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=900&q=85" },
@@ -17,6 +16,14 @@ const products = [
   { id: 6, name: "Workstation OS License", type: "Operating Systems", detail: "Operating system license category preview", price: 79, icon: Monitor, tag: "LICENSE", image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=85" },
 ];
 const categories = ["All software", "Antivirus", "Cybersecurity", "Operating Systems", "Utilities", "Cloud & Backup"];
+
+const antivirusBrands = [
+  { name: "Bitdefender", country: "Romania", founded: "2001", website: "https://www.bitdefender.com/", logo: "https://cdn.simpleicons.org/bitdefender/FFFFFF" },
+  { name: "ESET", country: "Slovakia", founded: "1992", website: "https://www.eset.com/", logo: "https://cdn.simpleicons.org/eset/FFFFFF" },
+  { name: "Avast", country: "Czech Republic", founded: "1988", website: "https://www.avast.com/", logo: "https://cdn.simpleicons.org/avast/FFFFFF" },
+  { name: "McAfee", country: "United States", founded: "1987", website: "https://www.mcafee.com/", logo: "https://cdn.simpleicons.org/mcafee/FFFFFF" },
+  { name: "Norton", country: "United States", founded: "1991", website: "https://www.norton.com/", logo: "https://cdn.simpleicons.org/norton/FFFFFF" },
+];
 
 export default function Home() {
   const [category, setCategory] = useState("All software");
@@ -35,7 +42,7 @@ export default function Home() {
     <header className="nav wrap">
       <a className="brand" href="#"><span className="brand-mark"><Sparkles size={20}/></span><span>Soft<span>Multiverse</span><small>ONE UNIVERSE. INFINITE SOFTWARE.</small></span></a>
       <nav className={menuOpen?"navlinks open":"navlinks"}>
-        <a href="#catalog" onClick={()=>setMenuOpen(false)}>Explore software</a><a href="#why" onClick={()=>setMenuOpen(false)}>Why SoftMultiverse</a><a href="#footer" onClick={()=>setMenuOpen(false)}>Support</a>
+        <a href="#catalog" onClick={()=>setMenuOpen(false)}>Explore software</a><a href="#security-brands" onClick={()=>setMenuOpen(false)}>Antivirus brands</a><a href="#why" onClick={()=>setMenuOpen(false)}>Why SoftMultiverse</a><a href="#footer" onClick={()=>setMenuOpen(false)}>Support</a>
       </nav>
       <div className="nav-actions"><button className="signin" onClick={()=>alert("Customer accounts will be enabled after secure authentication is connected.")}>Sign in</button><button className="cart-btn" onClick={()=>setCartOpen(true)}><ShoppingBag size={17}/> Cart <b>{count}</b></button><button className="mobile-menu" onClick={()=>setMenuOpen(!menuOpen)} aria-label="Toggle menu">{menuOpen?<X/>:<Menu/>}</button></div>
     </header>
@@ -57,6 +64,21 @@ export default function Home() {
       <div className="product-grid">{shown.map(p=>{const Icon=p.icon;return <article className="product" key={p.id}><div className="product-image"><img src={p.image} alt={`${p.name} software visual`} loading="lazy"/><div className="product-image-shade"/><div className="product-top"><div className="product-icon"><Icon size={24}/></div><span className="product-tag">{p.tag}</span></div></div><div className="product-type">{p.type}</div><h3>{p.name}</h3><p>{p.detail}</p><div className="product-bottom"><div><small>INDICATIVE PRICE</small><strong>${p.price.toFixed(2)} <small>USD</small></strong></div><button className="add-btn" onClick={()=>add(p.id)}><Plus size={16}/> Add</button></div></article>})}</div>
       {shown.length===0&&<div className="empty">No matching products. Try another search.</div>}
       <p className="demo-note">Catalogue and prices are sample content for preview only. No software license is currently offered for sale through this demo.</p>
+    </section>
+
+
+    <section className="brand-directory wrap" id="security-brands">
+      <div className="section-head">
+        <div><div className="eyebrow">SECURITY SOFTWARE MAKERS</div><h2>Explore antivirus <em>brands.</em></h2><p>Discover leading cybersecurity names from around the world.</p></div>
+        <div className="catalog-count">BRAND DIRECTORY <b>05</b></div>
+      </div>
+      <div className="brand-grid">
+        {antivirusBrands.map(brand => <a className="brand-card" href={brand.website} target="_blank" rel="noopener noreferrer" key={brand.name}>
+          <div className="brand-logo"><img src={brand.logo} alt={brand.name + " logo"} loading="lazy"/></div>
+          <div className="brand-info"><h3>{brand.name}</h3><p>{brand.country} · Since {brand.founded}</p><span>Official website <ArrowUpRight size={14}/></span></div>
+        </a>)}
+      </div>
+      <p className="brand-disclaimer">Brand names and logos are shown for identification only. SoftMultiverse is not claiming an authorized partnership with these companies. Product sales will begin only after the relevant reseller permissions are approved.</p>
     </section>
 
     <section className="why" id="why"><div className="wrap why-inner"><div><div className="eyebrow">A BETTER WAY TO DISCOVER</div><h2>One destination.<br/><em>More possibilities.</em></h2><p>SoftMultiverse is being built around a simple idea: make discovering digital software clearer, more accessible and easier to navigate.</p></div><div className="benefits"><div><span>01</span><b>Clarity first</b><p>Clear product information and straightforward categories.</p></div><div><span>02</span><b>Trust matters</b><p>Our goal is to offer authentic products from verified sources.</p></div><div><span>03</span><b>Global outlook</b><p>A marketplace designed with international customers in mind.</p></div></div></div></section>
