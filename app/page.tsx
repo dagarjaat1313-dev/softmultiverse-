@@ -25,6 +25,12 @@ const antivirusBrands = [
   { name: "Norton", country: "United States", founded: "1991", website: "https://www.norton.com/", logo: "https://cdn.simpleicons.org/norton/FFFFFF" },
 ];
 
+const trendMicroProducts = [
+  { name: "Antivirus+ Security", summary: "Essential protection against viruses, malware, ransomware and spyware.", devices: "Windows", link: "https://www.trendmicro.com/en_in/forHome/products/antivirus-plus.html", points: ["Antivirus and malware protection", "Ransomware defence", "Email scam protection"] },
+  { name: "Internet Security", summary: "Advanced protection for your PC, online banking and family browsing.", devices: "Windows", link: "https://www.trendmicro.com/en_in/forHome/products/internet-security.html", points: ["AI-powered threat protection", "Pay Guard for safer transactions", "Parental controls"] },
+  { name: "Maximum Security", summary: "Comprehensive protection for computers, phones and tablets.", devices: "Windows · Mac · Android · iOS · Chromebook", link: "https://www.trendmicro.com/en_in/forHome/products/maximum-security.html", points: ["Multi-device security", "Privacy and web threat protection", "Password management"] },
+];
+
 export default function Home() {
   const [category, setCategory] = useState("All software");
   const [query, setQuery] = useState("");
@@ -79,6 +85,30 @@ export default function Home() {
         </a>)}
       </div>
       <p className="brand-disclaimer">Brand names and logos are shown for identification only. SoftMultiverse is not claiming an authorized partnership with these companies. Product sales will begin only after the relevant reseller permissions are approved.</p>
+    </section>
+
+    <section className="trend-showcase wrap" id="trend-micro">
+      <div className="trend-heading">
+        <div className="trend-brand-lockup">
+          <img src="https://cdn.simpleicons.org/trendmicro/FFFFFF" alt="Trend Micro logo" loading="lazy"/>
+          <span>OFFICIAL PRODUCT RANGE</span>
+        </div>
+        <div><div className="eyebrow">TREND MICRO · SECURITY SPOTLIGHT</div><h2>Protection for your <em>digital life.</em></h2><p>Explore selected Trend Micro home-security products. Product details link to Trend Micro's official India website.</p></div>
+      </div>
+      <div className="trend-product-grid">
+        {trendMicroProducts.map((item, index) => <article className="trend-product-card" key={item.name}>
+          <div className="trend-product-art">
+            <div className="trend-product-orbit"></div>
+            <img src="https://cdn.simpleicons.org/trendmicro/FFFFFF" alt="Trend Micro brand mark" loading="lazy"/>
+            <span>0{index + 1} / HOME SECURITY</span>
+          </div>
+          <div className="trend-product-copy"><div className="trend-device">{item.devices}</div><h3>{item.name}</h3><p>{item.summary}</p>
+            <ul>{item.points.map(point => <li key={point}><Check size={14}/>{point}</li>)}</ul>
+            <a href={item.link} target="_blank" rel="noopener noreferrer">View official product <ArrowUpRight size={15}/></a>
+          </div>
+        </article>)}
+      </div>
+      <p className="trend-note">Product names and descriptions are provided for identification and discovery. SoftMultiverse is not an authorised Trend Micro reseller unless and until written approval is obtained. Purchases and subscriptions should be completed only through verified authorised channels.</p>
     </section>
 
     <section className="why" id="why"><div className="wrap why-inner"><div><div className="eyebrow">A BETTER WAY TO DISCOVER</div><h2>One destination.<br/><em>More possibilities.</em></h2><p>SoftMultiverse is being built around a simple idea: make discovering digital software clearer, more accessible and easier to navigate.</p></div><div className="benefits"><div><span>01</span><b>Clarity first</b><p>Clear product information and straightforward categories.</p></div><div><span>02</span><b>Trust matters</b><p>Our goal is to offer authentic products from verified sources.</p></div><div><span>03</span><b>Global outlook</b><p>A marketplace designed with international customers in mind.</p></div></div></div></section>
