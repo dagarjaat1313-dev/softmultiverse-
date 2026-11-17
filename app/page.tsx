@@ -48,7 +48,7 @@ export default function Home() {
     <header className="nav wrap">
       <a className="brand" href="#"><span className="brand-mark"><Sparkles size={20}/></span><span>Soft<span>Multiverse</span><small>ONE UNIVERSE. INFINITE SOFTWARE.</small></span></a>
       <nav className={menuOpen?"navlinks open":"navlinks"}>
-        <a href="#catalog" onClick={()=>setMenuOpen(false)}>Explore software</a><a href="#security-brands" onClick={()=>setMenuOpen(false)}>Antivirus brands</a><a href="#why" onClick={()=>setMenuOpen(false)}>Why SoftMultiverse</a><a href="#footer" onClick={()=>setMenuOpen(false)}>Support</a>
+        <a href="#catalog" onClick={()=>setMenuOpen(false)}>Explore software</a><a href="#security-brands" onClick={()=>setMenuOpen(false)}>Antivirus brands</a><a href="#trend-micro" onClick={()=>setMenuOpen(false)}>Trend Micro products</a><a href="#why" onClick={()=>setMenuOpen(false)}>Why SoftMultiverse</a><a href="#footer" onClick={()=>setMenuOpen(false)}>Support</a>
       </nav>
       <div className="nav-actions"><button className="signin" onClick={()=>alert("Customer accounts will be enabled after secure authentication is connected.")}>Sign in</button><button className="cart-btn" onClick={()=>setCartOpen(true)}><ShoppingBag size={17}/> Cart <b>{count}</b></button><button className="mobile-menu" onClick={()=>setMenuOpen(!menuOpen)} aria-label="Toggle menu">{menuOpen?<X/>:<Menu/>}</button></div>
     </header>
